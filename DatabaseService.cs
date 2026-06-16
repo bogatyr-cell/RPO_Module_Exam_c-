@@ -34,11 +34,11 @@ namespace MediTrack
                 using var adapter = new NpgsqlDataAdapter(cmd);
                 adapter.Fill(table);
             }
-            catch (Exception ex)
-            {
-                
-                System.Windows.MessageBox.Show("Произошла ошибка при загрузке данных.");
-            }
+          catch (Exception ex)
+{
+    Log.Error(ex, "Ошибка при загрузке данных из базы PostgreSQL.");
+    System.Windows.MessageBox.Show("Произошла ошибка при загрузке данных.");
+}
             return table;
         }
     }
